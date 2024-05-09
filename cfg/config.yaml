@@ -1,0 +1,36 @@
+# @package _global_
+
+# specify here default training configuration
+defaults:
+  - _self_
+  - model: DDIM
+  - scheduler: schedule
+  - train: null
+
+  # enable color logging
+  - override hydra/hydra_logging: colorlog
+  - override hydra/job_logging: colorlog
+
+dataset:
+  dataset: MNIST
+  image_size: 32
+  channels: 1
+
+sample:
+  method: ${method}
+  model_path: "YOUR PATH of pretrained ckpt"
+  image_output_path: "out"
+  batch_size: 5
+  total_num: 100 # total number of generarated images
+
+
+# path to original working directory
+# hydra hijacks working directory by changing it to the new log directory
+# so it's useful to have this path as a special variable
+# https://hydra.cc/docs/next/tutorials/basic/running_your_app/working_directory
+work_dir: ${hydra:runtime.cwd}
+method: F-PNDM
+sample_speed: 50 # total generate steps
+
+# seed for random number generators in pytorch, numpy and python.random
+seed: 42

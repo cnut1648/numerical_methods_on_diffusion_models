@@ -1,0 +1,8 @@
+hydra-core
+hydra-colorlog
+# torch
+torchvision
+numpy
+scipy
+tqdm
+tensorboard

@@ -1,0 +1,11 @@
+_target_: src.model.scoresde.ddpm.DDPM
+nf: 128
+ch_mult: [ 1, 2, 2, 2 ]
+num_res_blocks: 2
+attn_resolutions: [ 16, ]
+dropout: 0.1
+num_channels: 1
+resamp_with_conv: true
+image_size: 32
+conditional: true
+centered: true
